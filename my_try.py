@@ -7,8 +7,8 @@ from PIL import Image
 device = "cpu"
 model, preprocess = clip.load("RN50", device=device)
 
-image = preprocess(Image.open("CLIP.png")).unsqueeze(0).to(device)
-text = clip.tokenize(["a diagram", "a dog", "a cat"]).to(device)
+image = preprocess(Image.open("road.jpg")).unsqueeze(0).to(device)
+text = clip.tokenize(["a bicycle", "a dog", "a cat"]).to(device)
 
 with torch.no_grad():
     image_features = model.encode_image(image)
